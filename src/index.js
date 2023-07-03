@@ -1,6 +1,6 @@
 import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import { App } from 'components/App';
+import ReactDOM from 'react-dom/client';
+import { App } from 'components/App';
 import './index.css';
 
 // ReactDOM.createRoot(document.getElementById('root')).render(
@@ -11,4 +11,5 @@ import './index.css';
 
 
 // 01
-import './test/goit-test-r-01-001'
+import './test/goit-test-r-01-001';
+
