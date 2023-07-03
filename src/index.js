@@ -11,4 +11,4 @@ import './index.css';
 
 
 // 01
-import './components/test/goit-test-r-01-001'
+import './test/goit-test-r-01-001'
