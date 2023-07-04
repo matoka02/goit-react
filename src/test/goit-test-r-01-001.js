@@ -6,7 +6,7 @@ import 'index.css';
 import images from '../assets/image.json';
 
 
-// day01
+// Лекция 03.03.2023
 
 
 // console.log('hello');
@@ -56,18 +56,43 @@ import images from '../assets/image.json';
 // root.render(<ImgComponent src={images[0]} />);
 
 
-// Рефакторинг  с проверками
-const ImgComponent = ({src, alt = 'roses'}) => {
-    // console.log(props.src);        
+// // Рефакторинг  с проверками
+// const ImgComponent = ({src, alt = 'roses'}) => {
+//     // console.log(props.src);        
 
-    return (
-        <div>
-            {src ? <img width='200px' src={src} alt={alt}></img> : <p>No images</p>}
-            <div />      
-        </div>
+//     return (
+//         <div>
+//             {src ? <img width='200px' src={src} alt={alt}></img> : <p>No images</p>}
+//             <div />      
+//         </div>
         
-    )
-};  
+//     )
+// };  
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<ImgComponent src={images[0]} />);
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<ImgComponent src={images[0]} />);
+
+
+// // Рендеринг на JS
+// const div = document.createElement('div');
+// const root = document.getElementById('root');
+// root.append(div);
+
+const div = React.createElement('div');
+const root = document.getElementById('root');
+ReactDOM.createRoot(root).render(div);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
