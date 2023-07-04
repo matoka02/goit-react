@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
 
@@ -73,15 +73,39 @@ import images from '../assets/image.json';
 // root.render(<ImgComponent src={images[0]} />);
 
 
-// // Рендеринг на JS
+// // 1.1 Рендеринг на JS
 // const div = document.createElement('div');
+// div.id = 'some-ID';
+// div.classList = 'test-class';
 // const root = document.getElementById('root');
 // root.append(div);
 
-const div = React.createElement('div');
-const root = document.getElementById('root');
-ReactDOM.createRoot(root).render(div);
+// // 1.2 Рендеринг на React
+// const div = React.createElement('div', {name: 'main', id: 'test-ID', className: 'test-class', children: ['hello', 'React', 'from', 'UA']} );
+// ReactDOM.createRoot(document.getElementById('root')).render(div);
 
+// console.log(div);       // {$$typeof: Symbol(react.element), type: 'div', key: null, ref: null, props: {…}, …}
+// // props: {name: 'main', id: 'test-ID', className: 'test-class', children: Array(4)}
+
+
+// // 2. Вложенность элементов
+
+// const paragraph = React.createElement('p', {id:'test-P-Id', children: ['I am P']});
+
+// const div = React.createElement('div', {name: 'main', id: 'test-ID', className: 'test-class', children: paragraph} );
+
+// ReactDOM.createRoot(document.getElementById('root')).render(div);
+
+// рефакторинг
+const p = <p id='test-Id'>I am P</p>;
+
+const div = (
+    <div name='main' id='test' className='test-class'>
+        {p}
+    </div>
+);
+
+ReactDOM.createRoot(document.getElementById('root')).render(div);
 
 
 
