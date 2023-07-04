@@ -1,9 +1,11 @@
 import React, { Children } from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
-
 import 'index.css';
+
 import images from '../assets/image.json';
+import data from '../assets/data-01-001.json';
+import { Card } from 'components-01-001/Card';
 
 
 // Лекция 03.03.2023
@@ -96,27 +98,63 @@ import images from '../assets/image.json';
 
 // ReactDOM.createRoot(document.getElementById('root')).render(div);
 
-// рефакторинг
-const p = <p id='test-Id'>I am P</p>;
+// // рефакторинг
+// const p = <p id='test-Id'>I am P</p>;
 
-const div = (
-    <div name='main' id='test' className='test-class'>
-        {p}
-    </div>
-);
+// const div = (
+//     <div name='main' id='test' className='test-class'>
+//         {p}
+//     </div>
+// );
 
-ReactDOM.createRoot(document.getElementById('root')).render(div);
+// ReactDOM.createRoot(document.getElementById('root')).render(div);
 
-
-
-
-
-
+// // Подключение Bootstrap в html
+// <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></link>
+// <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 
+// // 3. Создание карточки
+
+// const card = (
+//     data.map((photo) => {
+//         return (
+//             <div key={photo.id} className="card mx-auto my-2" style={{width: '18rem'}}>
+//             <img src={photo.url} className="card-img-top" alt={photo.title} />
+//             <div className="card-body">
+//                 <h5 className="card-title">Card title: {photo.title}</h5>
+//                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+//                 <a href="http" className="btn btn-primary">Go somewhere</a>
+//             </div>
+//             </div>
+//         )
+//     })
+// );
+
+// ReactDOM.createRoot(document.getElementById('root')).render(card);
+
+// // рефакторинг в функцию
+
+// const Card = () => {    
+//     return data.map((photo) => {
+//         return (
+//             <div key={photo.id} className="card mx-auto my-2" style={{width: '18rem'}}>
+//             <img src={photo.url} className="card-img-top" alt={photo.title} />
+//             <div className="card-body">
+//                 <h5 className="card-title">Card title: {photo.title}</h5>
+//                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+//                 <a href="http" className="btn btn-primary">Go somewhere</a>
+//             </div>
+//             </div>
+//         )
+//     })
+// };
+
+// ReactDOM.createRoot(document.getElementById('root')).render(<Card />);
 
 
+// // 4. Разделение по файлам
 
+// см. папку components-01-001
 
-
-
+ReactDOM.createRoot(document.getElementById('root')).render(<Card />);
