@@ -11,7 +11,8 @@ import './index.css';
 
 
 // 01. Introduction to React. Stylization
-import './test/goit-test-r-01-001';
+// import './test/goit-test-r-01-001';
+import './test/goit-test-r-01-002';
 
 // 02. Events and States. Forms
 
