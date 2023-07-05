@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export const Head = ({clas, id, children}) => {
     // console.log(clas, id);
@@ -16,3 +17,11 @@ export const Head = ({clas, id, children}) => {
         </>
         )
 };
+
+Head.propTypes = {
+    clas: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    data: PropTypes.arrayOf(PropTypes.string),
+    // children: PropTypes.arrayOf(PropTypes.string||PropTypes.element),
+    children: PropTypes.array,
+}
