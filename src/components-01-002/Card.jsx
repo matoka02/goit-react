@@ -1,16 +1,16 @@
 import data from '../assets/data-01-001.json';
 import { Head } from './Head';
-// ванильный CSS, требует уникальных названий классов
+// 2. ванильный CSS, требует уникальных названий классов
 // import '../components-01-002/Card.css';
-// модульный CSS
+// 2. модульный CSS
 // import css from '../components-01-002/Card.module.css';
-// библиотека для добавления переключателей классов clsx
+// 2. библиотека для добавления переключателей классов clsx
 // import clsx from 'clsx';
-// библиотека для добавления классов styled-components
-import styled from 'styled-components';
+// 3. библиотека для добавления классов styled-components
+import { Container, Picture } from './Card.styled';
 
 
-// // Пример с использованием Bootstrap
+// // 1. Пример с использованием Bootstrap
 
 // export const Card = () => {    
 //     return data.map((photo) => {
@@ -34,7 +34,7 @@ import styled from 'styled-components';
 // };
 
 
-// // Пример с использованием модулей
+// // 2. Пример с использованием модулей
 
 // export const Card = ({isOnline}) => {    
 //     return data.map((photo) => {
@@ -72,17 +72,16 @@ import styled from 'styled-components';
 //     })
 // };
 
-const Container = styled.div`
-bac`
 
-export const Card = ({isOnline}) => {    
+// // 3. Пример с использованием библиотеки styled-components
+
+// см. файл Card.styled.js
+
+export const Card = ({isOnline, isOffline}) => {    
     return data.map((photo) => {
         return (
-            <div 
-            key={photo.id} 
-        
-            >
-                <img src={photo.url} alt={photo.title} />
+            <Container key={photo.id} isHide={isOnline}>
+                <Picture src={photo.url} alt={photo.title} />
                 <div >
                     <h5 >Card title: {photo.title}</h5>
                     <Head id='id-123' clas= 'card-title'>
@@ -93,7 +92,7 @@ export const Card = ({isOnline}) => {
                     <p >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="http">Go somewhere</a>
                 </div>
-            </div>
+            </Container>
         )
     })
 };
