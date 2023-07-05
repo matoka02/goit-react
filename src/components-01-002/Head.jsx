@@ -2,7 +2,7 @@ import React from "react";
 
 export const Head = ({clas, id, children}) => {
     // console.log(clas, id);
-    console.log(children);
+    // console.log(children);
     return (
         // <React.Fragment>
         //     {children}
