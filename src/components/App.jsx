@@ -17,7 +17,7 @@
 
 
 // 01. Introduction to React. Stylization
-import { Card } from "components-01-001/Card";
+import { Card } from "components-01-002/Card";
 
 export const App = () => {
   return <Card />
