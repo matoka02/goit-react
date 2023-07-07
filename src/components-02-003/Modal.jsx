@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const Modal = ({ children }) => {
+const Modal = ({ children, CloseModal }) => {
 	return (
 		<div
 			className='modal fade show'
@@ -14,6 +14,7 @@ const Modal = ({ children }) => {
 							type='button'
 							className='btn-close'
 							aria-label='Close'
+                            onClick={CloseModal}
 						></button>
 					</div>
 					<div className='modal-body'>{children}</div>
