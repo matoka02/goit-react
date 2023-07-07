@@ -8,7 +8,7 @@ import data from '../assets/data-01-001.json';
 import { Card } from 'components-01-001/Card';
 
 
-// Лекция 03.03.2023
+// Лекция 22.12.2022 (Михайличенко)
 
 
 // console.log('hello');
@@ -73,6 +73,9 @@ import { Card } from 'components-01-001/Card';
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<ImgComponent src={images[0]} />);
+
+
+// Лекция 03.03.2023 (Алиев-Ломач)
 
 
 // // 1.1 Рендеринг на JS
