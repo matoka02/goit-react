@@ -31,14 +31,24 @@
 
 import Header from "components-02-003/Header";
 import Counter from "components-02-003/Counter";
+// import ToDoList from "components-02-003/ToDoList";
+import Modal from "components-02-003/Modal";
+import { Component } from "react";
 
-export const App = () => {
-  return (
-    <div className="container">
-      <Header />
-      <Counter />
-    </div>
-  );
+class App extends Component {
+  state={
+    isShowModal: true
+  }
+  render(){
+    return (
+      <div className="container">
+        <Header />
+        <Counter />
+        {/* <ToDoList /> */}
+        {this.state.isShowModal && <Modal>Some</Modal>}
+      </div>
+    );
+  }
 };
 
 export default App;
