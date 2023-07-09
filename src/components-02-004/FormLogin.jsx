@@ -7,6 +7,7 @@ class FormLogin extends Component {
         password: '',
         // items: []
         isChecked: false,
+        gender: 'male'
     };
 
     // деструктуризация evt в target
@@ -24,6 +25,7 @@ class FormLogin extends Component {
             // то, что прилетает после заполнения полей и нажатия кнопки submit - передаем в App
             email: this.state.email,
             password: this.state.password,
+            gender: this.state.gender,
         });
         // // очистка конкретных полей после отправки
         // this.setState({
@@ -43,6 +45,11 @@ class FormLogin extends Component {
             isChecked: checked,
         })
     };
+
+    handleRadio = ({target}) => {
+        console.log(target.value);
+        this.setState({gender: target.value})
+    }
 
     render() {
         return (
@@ -100,7 +107,10 @@ class FormLogin extends Component {
             class="form-check-input" 
             type="radio" 
             name="flexRadioDefault" 
-            id="flexRadioDefault1"             checked />
+            id="flexRadioDefault1"             checked = {this.state.gender==='male'} 
+            onChange={this.handleRadio} 
+            value='male'
+            />
             <label 
             class="form-check-label" 
             for="flexRadioDefault1">Male</label>
@@ -111,6 +121,9 @@ class FormLogin extends Component {
             type="radio" 
             name="flexRadioDefault" 
             id="flexRadioDefault2" 
+            checked = {this.state.gender==='female'} 
+            onChange={this.handleRadio} 
+            value='female'
             />
             <label 
             class="form-check-label" 
