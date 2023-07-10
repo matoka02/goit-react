@@ -1,17 +1,21 @@
 // 03. Lifecycle. HTTP Requests
 // Part 01
 
-import Header from "components-02-004/Header";
-import ToDoList from "components-02-004/ToDoList";
-import Modal from "components-02-004/Modal";
+import Header from "components-03-005/Header";
+import ToDoList from "components-03-005/ToDoList";
+import Modal from "components-03-005/Modal";
 import { Component } from "react";
-import FormLogin from "components-02-004/FormLogin";
+import FormLogin from "components-03-005/FormLogin";
 import { nanoid } from "nanoid";
 
 export class App extends Component {
   state={
     isShowModal: false
   };
+
+  // componentDidMount(){
+  //   console.log('Mount');
+  // };
 
   ShowModal=()=>{
     this.setState({isShowModal: true})
@@ -25,7 +29,6 @@ export class App extends Component {
     console.log(data);
     const newUser = {
       ...data,
-      // id: useId(),   // хук,  не работает
       id: nanoid(),
     }
     console.log(newUser);
