@@ -1,23 +1,44 @@
 import React from 'react';
 import { Component } from 'react';
 
-export class FormToDo extends Component {
-  state = {};
+class FormToDo extends Component {
+  state = {
+    todo: '',
+  };
+
+  handleChange = ({ target }) => {
+    this.setState({
+      // [имя ключа]: значение, откуда забирать
+      [target.name]: target.value,
+    });
+  };
+
+  handleSubmit = evt => {
+    evt.preventDefault();
+
+    this.props.addToDo(this.state.todo);
+
+    this.setState({
+      todo: '',
+    });
+  };  
 
   render(){
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
+          <label 
+          htmlFor="exampleInput" 
+          className="form-label">
             Create to-do
           </label>
           <input
             name="todo"
             type="text"
             className="form-control"
-            id="exampleInputEmail1"
+            id="exampleInput"
             onChange={this.handleChange}
-            value={this.state.email}
+            value={this.state.todo}
           />
         </div>
 
@@ -32,3 +53,5 @@ export class FormToDo extends Component {
     
   };
 };
+
+export default FormToDo;
