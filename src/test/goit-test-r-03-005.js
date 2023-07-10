@@ -11,5 +11,6 @@ import 'index.css';
 // <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 // Примеры жизненного цикла см. в FormLogin
+// Рендер по запросу с использованием PureComponent см. Counter
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
