@@ -36,7 +36,7 @@ class ToDoList extends Component {
         this.setState({isCreate: false});
       }, 1500);
     }
-  }
+  };
 
   handleCheckCompleted = id => {
     this.setState(prevState => ({
