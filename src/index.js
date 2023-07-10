@@ -12,10 +12,10 @@ import './index.css';
 
 // 01. Introduction to React. Stylization
 // import './test/goit-test-r-01-001';
-// import './test/goit-test-r-01-002';
+import './test/goit-test-r-01-002';
 
 // 02. Events and States. Forms
-import './test/goit-test-r-02-003';
+// import './test/goit-test-r-02-003';
 // import './test/goit-test-r-02-004';
 
 // 03. Lifecycle. HTTP Requests
