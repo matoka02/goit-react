@@ -4,13 +4,6 @@ class Button extends PureComponent {
   shouldComponentUpdate(nextProps, prevState){
     // console.log(nextProps);   // {handleClickPlus: ƒ}
 
-  //   // проверка по 2 пропсам
-  //   if (nextProps.handleClickPlus === this.props.handleClickPlus && nextProps.obj.name === this.props.obj.name) {
-  //     return false;
-  //   }
-  //   return true;
-  // };
-
     // проверка по всем пропсам
     if (nextProps.handleClickPlus === this.props.handleClickPlus && nextProps.obj === this.props.obj) {
       return false;
