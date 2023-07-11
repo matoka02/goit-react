@@ -19,7 +19,7 @@ export class App extends Component {
 
   componentDidUpdate(prevProps, prevState){
     if (prevState !== this.props) {
-      fetch()
+      // fetch()
     }
   };
 
@@ -41,14 +41,14 @@ export class App extends Component {
   };
 
   handleSearch=(searchText) => {
-    this.state.searchText({searchText})
+    this.setState({searchText})
   };
 
   render(){
     return (
       <div className="container">
         <Header ShowModal={this.ShowModal}/>
-        <Search />
+        <Search handleSearch={this.handleSearch}/>
         <ContentInfo searchText={this.state.searchText} />
         {/* <ToDoList /> */}
         {/* {this.state.isShowModal && <Modal CloseModal={this.CloseModal}>

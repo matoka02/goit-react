@@ -14,13 +14,13 @@ class Search extends Component {
 		const { target } = e
 		const { value } = target
 		this.setState({ value })
-	}
+	};
 
   handleSubmit=(evt)=>{
     evt.preventDefault();
-    console.log(this.state);
-    
-  }
+    // console.log(this.state);
+    this.props.handleSearch(this.state.value)
+  };
 
 	render() {
 		return (
