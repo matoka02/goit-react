@@ -54,7 +54,14 @@ class ToDoList extends Component {
         this.setState({ isCreate: false });
       }, 1500);
     }
-  }
+    
+    // // включить для очистки 
+    // if (prevState.todoList.length !== this.state.todoList.length ) {
+    //   localStorage.removeItem('todo', JSON.stringify(this.state.todoList))
+    // }
+  };
+
+  
 
   handleCheckCompleted = id => {
     this.setState(prevState => ({
