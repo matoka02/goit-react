@@ -2,10 +2,10 @@
 // Part 01
 
 import Header from './Header';
-import ToDoList from "./ToDoList";
-import Modal from "./Modal";
+import ToDoList from './ToDoList';
+import Modal from './Modal';
 // import { Component } from 'react';
-import FormLogin from "./FormLogin";
+import FormLogin from './FormLogin';
 import { nanoid } from 'nanoid';
 import Search from './Search';
 import ContentInfo from './ContentInfo';
@@ -53,14 +53,16 @@ const App = () => {
 
   return (
     <div className="container">
-      <Toaster></Toaster>
+      <Toaster position="top-right" toastOptions={{ duration: 1500 }}></Toaster>
       <Header ShowModal={ShowModal} />
       <Search handleSearch={handleSearch} />
       <ContentInfo searchText={searchText} />
       <ToDoList />
-      {isShowModal && <Modal CloseModal={CloseModal}>
-          <FormLogin createUser={createUser}  CloseModal={CloseModal}/>
-          </Modal>}
+      {isShowModal && (
+        <Modal CloseModal={CloseModal}>
+          <FormLogin createUser={createUser} CloseModal={CloseModal} />
+        </Modal>
+      )}
       {/* <Counter></Counter> */}
     </div>
   );

@@ -19,11 +19,11 @@ import './index.css';
 // import './test/goit-test-r-02-004';
 
 // 03. Lifecycle. HTTP Requests
-import './test/goit-test-r-03-005';
+// import './test/goit-test-r-03-005';
 // import './test/goit-test-r-03-006';
 
 // 04. React Hooks. Routing
-// import './test/goit-test-r-04-007';
+import './test/goit-test-r-04-007';
 
 // 05. Routing
 

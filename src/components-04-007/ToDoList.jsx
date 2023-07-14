@@ -3,7 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-import todo from 'assets/data-03-005.json';
+// import todo from 'assets/data-03-005.json';
 import { nanoid } from 'nanoid';
 
 import ToDo from './ToDo';
@@ -28,14 +28,14 @@ const ToDoList = () => {
     todoList && localStorage.setItem('todo', JSON.stringify(todoList));
   }, [todoList]);
 
-  const handleCheckCompleted = id => {
+  const handleCheckCompleted = (id) => {
     setTodoList((prevTodoList)=>{
-      prevTodoList.todoList.map((todo) =>
+      return prevTodoList.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo)
     });
   };
 
-  const handleDelete = id => {
+  const handleDelete = (id) => {
     setTodoList((prevTodoList)=>{
       return prevTodoList.filter(todo => todo.id !== id)
     });
@@ -51,7 +51,7 @@ const ToDoList = () => {
   const addToDo = (value) => {
     setTodoList((prevTodoList)=>{
       return [
-        ...prevTodoList.todoList,
+        ...prevTodoList,
         { id: nanoid(), title: value, completed: false },
       ]
     });
