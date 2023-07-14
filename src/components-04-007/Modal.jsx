@@ -6,22 +6,30 @@ import { useEffect } from 'react';
 
 // const Modal = (props) => {
 const Modal = ({ CloseModal, children }) => {
-  const handlePressEscape = evt => {
-    if (evt.code === 'Escape') {
-      // props.CloseModal()
-      CloseModal();
-    }
-  };
+
+  // const handlePressEscape = evt => {
+  //   if (evt.code === 'Escape') {
+  //     // props.CloseModal()
+  //     CloseModal();
+  //   }
+  // };
 
   // хук useEffect
   useEffect(() => {
+    // чтобы не создавать при каждом рендере, а только по запросу
+    const handlePressEscape = evt => {
+      if (evt.code === 'Escape') {
+        CloseModal();
+      }
+    };
+
     // console.log('componentDidMount>>' );
     window.addEventListener('keydown', handlePressEscape);
     return () => {
       // console.log('componentWillUnmount>>') ;
       window.removeEventListener('keydown', handlePressEscape)
     };
-  }, []);
+  }, [CloseModal]);
 
   return (
     <div
