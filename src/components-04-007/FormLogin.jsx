@@ -9,22 +9,6 @@ class FormLogin extends Component {
     gender: 'male',
   };
 
-  // // возникает 1 раз, при загрузке элемента на страницу (открытие модального окна)
-  // // при закрытии модального окна исчезнет
-  // componentDidMount(){
-  //   console.log('Mount');
-  // };  
-
-  // // возникает каждый раз при заполнении полей
-  // componentDidUpdate(prevProps, prevState){
-  //   console.log('Update');
-  // };
-
-  //   // возникает 1 раз, при удалении элемента со страницы (закрытие модального окна)
-  // componentWillUnmount(prevProps, prevState){
-  //   console.log('Unmount');
-  // };
-
   handleChange = ({ target }) => {
     this.setState({
       // [имя ключа]: значение, откуда забирать
@@ -71,8 +55,6 @@ class FormLogin extends Component {
               className="form-control" 
               id="exampleInputEmail1" 
               aria-describedby="emailHelp" 
-              // onChange={(evt) => console.log(evt.target.value)} 
-              // value='123'
               onChange={this.handleChange} 
               value={this.state.email}
           />
