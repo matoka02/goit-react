@@ -1,18 +1,20 @@
 // 04. React Hooks. Routing
 // Part 02
 
-import Header from './Header';
-import ToDoList from './ToDoList';
-import Modal from './Modal';
 // import { Component } from 'react';
-import FormLogin from './FormLogin';
-import { nanoid } from 'nanoid';
-import Search from './Search';
-import ContentInfo from './ContentInfo';
 import { useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 // import { useId } from 'react';
-import Counter from "./Counter";
+import { nanoid } from 'nanoid';
+
+// import Header from './Header';
+// import ToDoList from './ToDoList';
+// import Modal from './Modal';
+// import FormLogin from './FormLogin';
+// import Search from './Search';
+import ContentInfo from './ContentInfo';
+// import Counter from "./Counter";
+import TestUseMemo from './TestUseMemo';
 
 const App = () => {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -47,7 +49,8 @@ const App = () => {
           <FormLogin createUser={createUser} CloseModal={CloseModal} />
         </Modal>
       )} */}
-      <Counter></Counter>
+      {/* <Counter /> */}
+      <TestUseMemo />
     </div>
   );
 };
