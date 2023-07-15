@@ -6,23 +6,23 @@ function complexCompute(number) {
 }
 
 const TestUseMemo = () => {
-	const [total, setTotal] = useState(10)
-	const [colored, setColored] = useState(false)
+	const [total, setTotal] = useState(10);
+	const [colored, setColored] = useState(false);
 
 	const styled = useMemo(() => {
 		return { color: colored ? 'red' : 'white' }
-	}, [colored])
+	}, [colored]);
 
 	// const computed = complexCompute(total)
 
 	const computed = useMemo(() => {
 		console.log('useMemo :>> ')
 		return complexCompute(total)
-	}, [total])
+	}, [total]);
 
 	useEffect(() => {
 		console.log('change styled')
-	}, [styled])
+	}, [styled]);
 
 	return (
 		<div className='card bg-dark text-white mx-auto w-100 mt-2'>
