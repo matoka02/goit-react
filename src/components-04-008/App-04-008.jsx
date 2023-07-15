@@ -12,7 +12,7 @@ import ContentInfo from './ContentInfo';
 import { useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 // import { useId } from 'react';
-// import Counter from "./Counter";
+import Counter from "./Counter";
 
 const App = () => {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -38,16 +38,16 @@ const App = () => {
   return (
     <div className="container">
       <Toaster position="top-right" toastOptions={{ duration: 1500 }}></Toaster>
-      <Header ShowModal={ShowModal} />
-      <Search handleSearch={handleSearch} />
+      {/* <Header ShowModal={ShowModal} /> */}
+      {/* <Search handleSearch={handleSearch} /> */}
       <ContentInfo searchText={searchText} />
-      <ToDoList />
-      {isShowModal && (
+      {/* <ToDoList /> */}
+      {/* {isShowModal && (
         <Modal CloseModal={CloseModal}>
           <FormLogin createUser={createUser} CloseModal={CloseModal} />
         </Modal>
-      )}
-      {/* <Counter></Counter> */}
+      )} */}
+      <Counter></Counter>
     </div>
   );
 };
