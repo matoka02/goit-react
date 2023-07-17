@@ -1,10 +1,11 @@
-// import { useCustomContext } from './Context/Context';
-import { useContext } from "react";
-import { Context } from "./App";
+// import { useContext } from "react";
+// import { Context } from "./App";
+import { useCustomContext } from "./Context";
 
 // const Main = ({setToggleAlert}) => {
 const Main = () => {
-	const context = useContext(Context);
+	// const context = useContext(Context);
+  const context = useCustomContext();
 
 	return (
 		<div>
