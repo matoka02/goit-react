@@ -2,8 +2,6 @@ import React from 'react';
 // import { Component } from 'react';
 import { PureComponent } from 'react';
 import { useState } from 'react';
-import { useReducer } from 'react';
-
 
 class Button extends PureComponent {
 
@@ -20,61 +18,12 @@ class Button extends PureComponent {
   }
 };
 
-// // 1.1 одинаковое дейтвие
-// function reducer(prevState, nextState){
-//   return prevState + nextState;
-// };
-
-// // 1.2 изменение только 1 параметра
-// function reducer(prevState, action){
-//   if (action.type === 'increment') {
-//     return prevState + action.payload;
-//   } else {
-//     return prevState - action.payload
-//   };
-// };
-
-// // 1.3 изменение нескольких параметров
-function reducer(prevState, action){
-  if (action.type ==='createUser') {
-    return {
-      ...prevState, user: action.payload
-    } 
-  } else if (action.type === 'createCountry') {
-    return {
-      ...prevState, country: action.payload
-    } 
-  }
-};
-
 const Counter = () => {
-  // // 1.0 начальный код
+
   const [total, setTotal] = useState(0);
 
-  // // 1.2 изменение только 1 параметра
-  // const [total, setTotal] = useReducer(reducer, 0);
-  
-  // // 1.3 изменение нескольких параметров
-  // const [total, dispatch] = useReducer(reducer, {
-  //   user: null,
-  //   country: '',
-  //   items: []
-  // });
-
-  // dispatch({type: 'createUser', payload: {name: 'Alex'}});
-  // dispatch({type: 'createCountry', payload: {name: 'Ukraine'}});
-
-  // 1.0 начальный код
   const handleClickPlus = () => setTotal((prevState) => prevState + 1);
   const handleClickMinus = () => setTotal((prevState) => prevState - 1);
-
-  // // 1.1 одинаковое дейтвие
-  // const handleClickPlus = () => setTotal(1);
-  // const handleClickMinus = () => setTotal(1);
-
-  // // 1.2 изменение только 1 параметра
-  // const handleClickPlus = () => setTotal({type: 'increment', payload: 1});
-  // const handleClickMinus = () => setTotal({type: 'decrement', payload: 1});
 
   return (
       <div className="position-absolute top-50 start-50 translate-middle">
