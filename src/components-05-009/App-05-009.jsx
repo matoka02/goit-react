@@ -16,10 +16,12 @@ import {  Route, Routes } from 'react-router-dom';
 // import ContentInfo from './ContentInfo';
 // import Counter from "./Counter";
 // import TestUseMemo from './TestUseMemo';
+import Layout from './Layout';
+import ToDoDetails from './ToDoDetails';
 import HomePage from './pages/HomePage';
 import NewsPage from './pages/NewsPage';
 import TodoPage from './pages/TodoPage';
-import Layout from './Layout';
+
 
 
 const App = () => {
@@ -30,6 +32,7 @@ const App = () => {
         <Route index element={<HomePage />} />
         <Route path="news" element={<NewsPage />} />    
         <Route path="todo" element={<TodoPage />} />
+        <Route path="todo/:id" element={<ToDoDetails />} />
       </Route>
     </Routes>
   );
