@@ -2,58 +2,37 @@
 // Part 01
 
 // import { Component } from 'react';
-import { useState } from 'react';
-import { Toaster } from 'react-hot-toast';
+// import { useState } from 'react';
+// import { Toaster } from 'react-hot-toast';
 // import { useId } from 'react';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
+import {  Route, Routes } from 'react-router-dom';
 
 // import Header from './Header';
 // import ToDoList from './ToDoList';
 // import Modal from './Modal';
 // import FormLogin from './FormLogin';
 // import Search from './Search';
-import ContentInfo from './ContentInfo';
+// import ContentInfo from './ContentInfo';
 // import Counter from "./Counter";
-import TestUseMemo from './TestUseMemo';
+// import TestUseMemo from './TestUseMemo';
+import HomePage from './pages/HomePage';
+import NewsPage from './pages/NewsPage';
+import TodoPage from './pages/TodoPage';
+import Layout from './Layout';
+
 
 const App = () => {
-  const [isShowModal, setIsShowModal] = useState(false);
-  const [searchText, setSearchText] = useState('');
-
-  const ShowModal = () => setIsShowModal(true);
-
-  const CloseModal = () => setIsShowModal(false);
-
-  function createUser(data) {
-    console.log(data);
-    const newUser = {
-      ...data,
-      id: nanoid(),
-    };
-    console.log(newUser);
-  }
-
-  const handleSearch = searchText => {
-    setSearchText(searchText);
-  };
-
   return (
-    <div className="container">
-      <Toaster position="top-right" toastOptions={{ duration: 1500 }}></Toaster>
-      {/* <Header ShowModal={ShowModal} /> */}
-      {/* <Search handleSearch={handleSearch} /> */}
-      <ContentInfo searchText={searchText} />
-      {/* <ToDoList /> */}
-      {/* {isShowModal && (
-        <Modal CloseModal={CloseModal}>
-          <FormLogin createUser={createUser} CloseModal={CloseModal} />
-        </Modal>
-      )} */}
-      {/* <Counter /> */}
-      <TestUseMemo />
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />} >
+        {/* index - дублирование 2 компонентов на 1 маршруте */}
+        <Route index element={<HomePage />} />
+        <Route path="news" element={<NewsPage />} />    
+        <Route path="todo" element={<TodoPage />} />
+      </Route>
+    </Routes>
   );
 };
 
 export default App;
-// export { App };
