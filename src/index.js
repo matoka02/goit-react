@@ -27,8 +27,8 @@ import './index.css';
 // import './test/goit-test-r-04-008';
 
 // 05. Routing
-import './test/goit-test-r-05-009';
-// import './test/goit-test-r-05-010';
+// import './test/goit-test-r-05-009';
+import './test/goit-test-r-05-010';
 
 // 06. Redux Fundamentals. Redux Toolkit
 

@@ -1,39 +1,66 @@
-import { Component } from "react";
+// import { useState } from "react";
 
+const FormFilterToDo = ({setSearchParams}) => {
+  // const [filter, setFilter] = useState('');
 
-
-class FormFilterToDo extends Component {
-  state = {
-    todo: '',
+  const handleChange = ({ target }) => {
+    // setFilter(target.value);
+    setSearchParams({filter: target.value});
   };
 
-  handleChange = ({ target }) => {
-    this.setState({
-      // [имя ключа]: значение, откуда забирать
-      [target.name]: target.value,
-    });
-  };
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // console.log(params);
 
-  render() {
-    return (
-      <form>
-        <div className="mb-3">
-          <label htmlFor="exampleInput" className="form-label">
-            Filter: 
-          </label>
-          <input
-            name="todo"
-            type="text"
-            className="form-control"
-            id="exampleInput"
-            onChange={this.handleChange}
-            // value={this.state.todo}
-          />
-        </div>
+  return (
+    <form>
+      <div className="mb-3">
+        <label htmlFor="exampleInput" className="form-label">
+          Filter:
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="exampleInput"
+          onChange={handleChange}
+          // value={this.state.todo}
+        />
+      </div>
+    </form>
+  );
+};
 
-      </form>
-    );
-  }
-}
+// class FormFilterToDo extends Component {
+//   state = {
+//     todo: '',
+//   };
+
+//   handleChange = ({ target }) => {
+//     this.setState({
+//       // [имя ключа]: значение, откуда забирать
+//       [target.name]: target.value,
+//     });
+//   };
+
+//   render() {
+//     return (
+//       <form>
+//         <div className="mb-3">
+//           <label htmlFor="exampleInput" className="form-label">
+//             Filter:
+//           </label>
+//           <input
+//             name="todo"
+//             type="text"
+//             className="form-control"
+//             id="exampleInput"
+//             onChange={this.handleChange}
+//             // value={this.state.todo}
+//           />
+//         </div>
+
+//       </form>
+//     );
+//   }
+// }
 
 export default FormFilterToDo;

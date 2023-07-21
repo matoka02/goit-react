@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
+import { useSearchParams } from 'react-router-dom';
 
 // import todo from 'assets/data-03-005.json';
 import { nanoid } from 'nanoid';
@@ -13,40 +14,56 @@ import FormFilterToDo from './FormFilterTodo';
 
 const ToDoList = () => {
   const [todoList, setTodoList] = useState('');
+  const [filterTodoList, setFilterTodoList] = useState(todoList);
 
-  useEffect(()=>{
-    const localTodo = localStorage.getItem('todo')
-    if (localTodo){
-      setTodoList(JSON.parse(localTodo)
-    )};
+  const [searchParams, setSearchParams] = useSearchParams();
+  // console.log(searchParams.get('filter'));
+
+  const filterText = searchParams.get('filter') ?? '';
+
+  useEffect(() => {
+    const localTodo = localStorage.getItem('todo');
+    if (localTodo) {
+      setTodoList(JSON.parse(localTodo));
+    }
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     // прописано условие, чтобы не грузилось сразу при первом рендере
     todoList && localStorage.setItem('todo', JSON.stringify(todoList));
   }, [todoList]);
 
-  const handleCheckCompleted = (id) => {
-    setTodoList((prevTodoList)=>{
-      return prevTodoList.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo)
+  useEffect(() => {
+    todoList &&
+      setFilterTodoList(
+        todoList.filter(todo =>
+          todo.title.toLowerCase().includes(filterText.trim().toLowerCase())
+        )
+      );
+  }, [filterText, searchParams, todoList]);
+
+  const handleCheckCompleted = id => {
+    setTodoList(prevTodoList => {
+      return prevTodoList.map(todo =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      );
     });
   };
 
-  const handleDelete = (id) => {
-    setTodoList((prevTodoList)=>{
-      return prevTodoList.filter(todo => todo.id !== id)
+  const handleDelete = id => {
+    setTodoList(prevTodoList => {
+      return prevTodoList.filter(todo => todo.id !== id);
     });
 
     toast.error('Delete successfully');
   };
 
-  const addToDo = (value) => {
-    setTodoList((prevTodoList)=>{
+  const addToDo = value => {
+    setTodoList(prevTodoList => {
       return [
         ...prevTodoList,
         { id: nanoid(), title: value, completed: false },
-      ]
+      ];
     });
 
     toast.success('Create successfully');
@@ -55,11 +72,14 @@ const ToDoList = () => {
   return (
     <>
       <h1>My To-Do list</h1>
-      <FormFilterToDo />
+      <FormFilterToDo
+        setSearchParams={setSearchParams}
+        filterText={filterText}
+      />
       <FormToDo addToDo={addToDo}></FormToDo>
-      {todoList && (
+      {filterTodoList && (
         <ul className="list-group list-group-flush">
-          {todoList.map(todo => (
+          {filterTodoList.map(todo => (
             <ToDo
               key={todo.id}
               todo={todo}
