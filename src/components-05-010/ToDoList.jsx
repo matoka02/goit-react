@@ -18,7 +18,11 @@ const ToDoList = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   // console.log(searchParams.get('filter'));
+  // console.log(searchParams.getAll('filter'));       // ['hhhhhhhhhhh']
+  // console.log(...searchParams);                     // (2) ['filter', 'hhhhhhhhhhh']
+  // console.log(Object.fromEntries([...searchParams]));    // {filter: 'hhhhhhhhhhh'}
 
+  // добавление '', чтобы при незаполненном поле фильтра был рендер всех элементов списка
   const filterText = searchParams.get('filter') ?? '';
 
   useEffect(() => {
