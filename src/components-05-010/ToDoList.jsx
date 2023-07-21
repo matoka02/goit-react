@@ -2,13 +2,14 @@ import React from 'react';
 // import { Component} from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { toast } from 'react-hot-toast';
 
 // import todo from 'assets/data-03-005.json';
 import { nanoid } from 'nanoid';
 
 import ToDo from './ToDo';
 import FormToDo from './FormToDo';
-import { toast } from 'react-hot-toast';
+import FormFilterToDo from './FormFilterTodo';
 
 const ToDoList = () => {
   const [todoList, setTodoList] = useState('');
@@ -54,6 +55,7 @@ const ToDoList = () => {
   return (
     <>
       <h1>My To-Do list</h1>
+      <FormFilterToDo />
       <FormToDo addToDo={addToDo}></FormToDo>
       {todoList && (
         <ul className="list-group list-group-flush">

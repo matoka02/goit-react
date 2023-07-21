@@ -1,6 +1,6 @@
 // import { Outlet } from 'react-router-dom';
 // import Header from '/Header';
-import Counter from "components-05-009/Counter";
+import Counter from "components-05-010/Counter";
 
 
 const HomePage = () => {
