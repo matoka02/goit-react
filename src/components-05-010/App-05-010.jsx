@@ -2,17 +2,19 @@
 // Part 02
 
 import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
+import { Suspense, lazy } from 'react';
 
 import Layout from './Layout';
 // import ToDoDetails from './ToDoDetails';
 import HomePage from './pages/HomePage';
 // import NewsPage from './pages/NewsPage';
 // import TodoPage from './pages/TodoPage';
+// import LoginPage from './pages/LoginPage';
 
 const ToDoDetails = lazy(() => import('./ToDoDetails'));
-const TodoPage = lazy(() => import('./pages/TodoPage'));
 const NewsPage = lazy(() => import('./pages/NewsPage'));
+const TodoPage = lazy(() => import('./pages/TodoPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
 
 
 const App = () => {
@@ -25,6 +27,11 @@ const App = () => {
         <Route path="todo" element={<TodoPage />} />
         <Route path="todo/:id" element={<ToDoDetails />} />
       </Route>
+      <Route path='/login' element={
+        <Suspense>
+          <LoginPage />
+        </Suspense>
+      } />
     </Routes>
   );
 };

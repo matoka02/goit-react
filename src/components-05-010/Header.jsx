@@ -1,6 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Header = ({ ShowModal }) => {
+	const navigate = useNavigate();
+
+	const handleLogin = () => {
+		2 + 2 ? navigate('/login') : navigate('/')
+	};
+
+  // return <Navigate to={'/login'}/>
+
   return (
     <nav className="navbar bg-dark mb-3  navbar-expand-lg">
       <div className="container-fluid">
@@ -24,6 +32,9 @@ const Header = ({ ShowModal }) => {
         </div>
         <button className="btn btn-outline-success" onClick={ShowModal}>
           Open Modal
+        </button>
+        <button className="btn btn-outline-success" onClick={handleLogin}>
+          Login
         </button>
       </div>
     </nav>
