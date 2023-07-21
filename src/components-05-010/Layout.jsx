@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 
 import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 
 import Header from './Header';
 import Modal from './Modal';
@@ -30,7 +30,10 @@ const Layout = () => {
     <div className="container">
       <Toaster position="top-right" toastOptions={{ duration: 1500 }}></Toaster>
       <Header ShowModal={ShowModal} />
-      <Outlet />
+
+      <Suspense fallback={<h1>Loading...</h1>}>
+        <Outlet />
+      </Suspense>
 
       {isShowModal && (
         <Modal CloseModal={CloseModal}>

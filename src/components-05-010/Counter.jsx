@@ -6,7 +6,7 @@ import { useState } from 'react';
 class Button extends PureComponent {
 
   render() {
-    console.log('render Btn :>> ');
+    // console.log('render Btn :>> ');
     return (
       <button
         className="btn btn-outline-success me-5"
