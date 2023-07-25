@@ -21,7 +21,6 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        {/* index - дублирование 2 компонентов на 1 маршруте */}
         <Route index element={<HomePage />} />
         <Route path="news" element={<NewsPage />} />
         <Route path="todo" element={<TodoPage />} />
