@@ -1,10 +1,10 @@
 import React from 'react';
 // import { Component } from 'react';
 import { PureComponent } from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 class Button extends PureComponent {
-
   render() {
     // console.log('render Btn :>> ');
     return (
@@ -16,38 +16,44 @@ class Button extends PureComponent {
       </button>
     );
   }
-};
+}
 
 const Counter = () => {
+  // const [total, setTotal] = useState(0);
+  // const handleClickPlus = () => setTotal((prevState) => prevState + 1);
+  // const handleClickMinus = () => setTotal((prevState) => prevState - 1);
 
-  const [total, setTotal] = useState(0);
+  // рефакторинг
+  // const state = useSelector((state)=>state);
+  // console.log(state);
+  const { total } = useSelector(state => state);
 
-  const handleClickPlus = () => setTotal((prevState) => prevState + 1);
-  const handleClickMinus = () => setTotal((prevState) => prevState - 1);
+  const dispatch = useDispatch();
+
+  const handleClickPlus = () => dispatch({ type: 'increment', payload: 1 });
+  const handleClickMinus = () => dispatch({ type: 'decrement', payload: 1 });
 
   return (
-      <div className="position-absolute top-50 start-50 translate-middle">
-        <div className="card bg-dark text-white " style={{ width: '600px' }}>
-          <div className="card-body">
-            <h5 className="card-title text-center fs-1">Counter</h5>
-            <p className="card-text  text-center" style={{ fontSize: '80px' }}>
-              {total}
-            </p>
-            <div className="d-flex justify-content-center px-5">
-              <Button
-                handleClickPlus={handleClickPlus}
-              />
-              <button
-                className="btn  btn-outline-danger ms-5"
-                onClick={handleClickMinus}
-              >
-                <i className="bi bi-dash-circle fs-1"></i>
-              </button>
-            </div>
+    <div className="position-absolute top-50 start-50 translate-middle">
+      <div className="card bg-dark text-white " style={{ width: '600px' }}>
+        <div className="card-body">
+          <h5 className="card-title text-center fs-1">Counter</h5>
+          <p className="card-text  text-center" style={{ fontSize: '80px' }}>
+            {total}
+          </p>
+          <div className="d-flex justify-content-center px-5">
+            <Button handleClickPlus={handleClickPlus} />
+            <button
+              className="btn  btn-outline-danger ms-5"
+              onClick={handleClickMinus}
+            >
+              <i className="bi bi-dash-circle fs-1"></i>
+            </button>
           </div>
         </div>
       </div>
-  )
+    </div>
+  );
 };
 
 export default Counter;
