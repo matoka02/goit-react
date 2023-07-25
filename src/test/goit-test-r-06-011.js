@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import 'index.css';
 
-import App from '../components-05-010/App-05-010';
-import Context from 'components-05-010/Context';
+import App from '../components-06-011/App-06-011';
+import Context from 'components-06-011/Context';
 
 // Лекция 27.03.2023  (Алиев-Ломач)
 

@@ -1,5 +1,5 @@
-// 05. Routing
-// Part 02
+// 06. Redux Fundamentals. Redux Toolkit
+// Part 01
 
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';

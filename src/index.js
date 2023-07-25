@@ -28,9 +28,11 @@ import './index.css';
 
 // 05. Routing
 // import './test/goit-test-r-05-009';
-import './test/goit-test-r-05-010';
+// import './test/goit-test-r-05-010';
 
 // 06. Redux Fundamentals. Redux Toolkit
+import './test/goit-test-r-06-011';
+// import './test/goit-test-r-06-012';
 
 // 07. Async Redux. Selector optimization
 
