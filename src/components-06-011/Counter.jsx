@@ -4,6 +4,8 @@ import { PureComponent } from 'react';
 // import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { decrement, increment } from './store/counter/action';
+
 class Button extends PureComponent {
   render() {
     // console.log('render Btn :>> ');
@@ -34,8 +36,11 @@ const Counter = () => {
   // const handleClickPlus = () => dispatch({ type: 'increment', payload: 1 });
   // const handleClickMinus = () => dispatch({ type: 'decrement', payload: 1 });
 
-  const handleClickPlus = () => dispatch({ type: 'increment', payload: step });
-  const handleClickMinus = () => dispatch({ type: 'decrement', payload: step });
+  // const handleClickPlus = () => dispatch({ type: 'increment', payload: step });
+  // const handleClickMinus = () => dispatch({ type: 'decrement', payload: step });
+  
+  const handleClickPlus = () => dispatch(increment(step));
+  const handleClickMinus = () => dispatch(decrement(step));
 
   return (
     <div className="position-absolute top-50 start-50 translate-middle">
