@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 // import { setStep } from '../../store/counter/actions'
 
 const Step = () => {
-	const { step } = useSelector((state) => state);
+	const { step } = useSelector((state) => state.counter);
 
 	const dispatch = useDispatch();
 

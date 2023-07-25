@@ -26,8 +26,8 @@ const Counter = () => {
   // рефакторинг
   // const state = useSelector((state)=>state);
   // console.log(state);
-  const { total } = useSelector(state => state);
-  const { step } = useSelector(state => state);
+  const { total } = useSelector(state => state.counter);
+  const { step } = useSelector(state => state.counter);
   console.log(step);
   const dispatch = useDispatch();
 
