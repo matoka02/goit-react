@@ -27,11 +27,15 @@ const Counter = () => {
   // const state = useSelector((state)=>state);
   // console.log(state);
   const { total } = useSelector(state => state);
-
+  const { step } = useSelector(state => state);
+  console.log(step);
   const dispatch = useDispatch();
 
-  const handleClickPlus = () => dispatch({ type: 'increment', payload: 1 });
-  const handleClickMinus = () => dispatch({ type: 'decrement', payload: 1 });
+  // const handleClickPlus = () => dispatch({ type: 'increment', payload: 1 });
+  // const handleClickMinus = () => dispatch({ type: 'decrement', payload: 1 });
+
+  const handleClickPlus = () => dispatch({ type: 'increment', payload: step });
+  const handleClickMinus = () => dispatch({ type: 'decrement', payload: step });
 
   return (
     <div className="position-absolute top-50 start-50 translate-middle">
