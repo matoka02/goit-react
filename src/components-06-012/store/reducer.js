@@ -1,18 +1,10 @@
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 
+// import { reducer as rootReducer } from './store';
 import { reducer } from './store';
 
-
-// export const store = createStore(reducer, {
-//   counter: { total: 0, step: 1 },
-//   todo: { todo: [], filteredTodo: [] },
-// });
-
-// const initialState = {
-//   counter: { total: 0, step: 1 },
-//   todo: { todo: [], filteredTodo: [] },
-// };
-
-const store = createStore(reducer);
+// const store = configureStore({reducer: rootReducer});
+const store = configureStore({reducer});
 
 export default store;
