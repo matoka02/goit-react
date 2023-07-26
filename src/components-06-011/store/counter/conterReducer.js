@@ -1,8 +1,8 @@
 import { DECREMENT, INCREMENT, SETSTEP } from "./types";
-import { initialState } from "../initialState";
+import { counterInitialState } from "./initialState";
 
 
-export const counterReducer = (state = initialState.counter, action) => {
+export const counterReducer = (state = counterInitialState, action) => {
   switch (action.type) {
     // case 'increment':
     case INCREMENT:

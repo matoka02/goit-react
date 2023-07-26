@@ -1,24 +1,9 @@
 import React from 'react';
 // import { Component } from 'react';
-import { PureComponent } from 'react';
 // import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { decrement, increment } from './store/counter/action';
-
-class Button extends PureComponent {
-  render() {
-    // console.log('render Btn :>> ');
-    return (
-      <button
-        className="btn btn-outline-success me-5"
-        onClick={this.props.handleClickPlus}
-      >
-        <i className="bi bi-plus-circle fs-1"></i>
-      </button>
-    );
-  }
-}
 
 const Counter = () => {
   // const [total, setTotal] = useState(0);
@@ -38,7 +23,7 @@ const Counter = () => {
 
   // const handleClickPlus = () => dispatch({ type: 'increment', payload: step });
   // const handleClickMinus = () => dispatch({ type: 'decrement', payload: step });
-  
+
   const handleClickPlus = () => dispatch(increment(step));
   const handleClickMinus = () => dispatch(decrement(step));
 
@@ -51,7 +36,12 @@ const Counter = () => {
             {total}
           </p>
           <div className="d-flex justify-content-center px-5">
-            <Button handleClickPlus={handleClickPlus} />
+            <button
+              className="btn btn-outline-success me-5"
+              onClick={handleClickPlus}
+            >
+              <i className="bi bi-plus-circle fs-1"></i>
+            </button>
             <button
               className="btn  btn-outline-danger ms-5"
               onClick={handleClickMinus}

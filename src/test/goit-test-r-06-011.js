@@ -7,7 +7,7 @@ import 'index.css';
 
 import App from '../components-06-011/App-06-011';
 import Context from 'components-06-011/Context';
-import store from '../components-06-011/store/reducer';
+import store from '../components-06-011/store/store';
 
 // Лекция 12.04.2023  (Алиев-Ломач)
 
