@@ -1,17 +1,21 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { decrement, increment } from './store/counter/action';
+// import { decrement, increment } from './store/counter/action';     // изменение импорта
+import { decrement, increment } from './store/counter/counterSlice';
 
 const Counter = () => {
   const { total, step } = useSelector(state => state.counter);
   console.log(step);
   const dispatch = useDispatch();
 
-  const handleClickPlus = () => dispatch(increment(step));
-  const handleClickMinus = () => dispatch(decrement(step));
+  // const handleClickPlus = () => dispatch(increment(step));     // изменение импорта
+  // const handleClickMinus = () => dispatch(decrement(step));     // изменение импорта
 
-  return (
+  const handleClickPlus = () => dispatch(increment(step));
+  const handleClickMinus = () => dispatch(decrement(step)); 
+
+  return (    
     <div className="position-absolute top-50 start-50 translate-middle">
       <div className="card bg-dark text-white " style={{ width: '600px' }}>
         <div className="card-body">

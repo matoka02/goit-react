@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
+import { setStep } from './store/counter/counterSlice';
 
-import { setStep } from './store/counter/action';
-// import { setStep } from '../../store/counter/actions'
+// import { setStep } from './store/counter/action';
 
 const Step = () => {
 	const { step } = useSelector((state) => state.counter);
@@ -11,7 +11,7 @@ const Step = () => {
 	const handleSubmit = (evt) => {
 		evt.preventDefault();
 		const { value } = evt.target.elements.step;
-    // dispatch({type: 'setStep', payload: Number(value)})
+		// dispatch(setStep(Number(value)));     // изменение импорта
 		dispatch(setStep(Number(value)));
 	};
 
