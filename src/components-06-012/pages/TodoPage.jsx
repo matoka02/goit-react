@@ -1,4 +1,4 @@
-import ToDoList from "components-05-010/ToDoList";
+import ToDoList from "components-06-012/ToDoList";
 
 const TodoPage = () => {
   return (
