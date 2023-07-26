@@ -5,7 +5,7 @@ import { counterInitialState } from './initialState';
 
 import { createReducer } from '@reduxjs/toolkit';
 
-// export const counterReducer = (state = initialState.counter, action) => {
+// export const counterReducer = (state = counterInitialState, action) => {
 //   switch (action.type) {
 //     case INCREMENT:
 //       return {
