@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import 'index.css';
 
 import App from '../components-06-012/App-06-012';
 import Context from 'components-06-012/Context';
-import store from '../components-06-012/store/store';
+// import store from '../components-06-012/store/store';
+import { persistor, store } from '../components-06-012/store/store';
 
 // Лекция 14.04.2023  (Алиев-Ломач)
 
@@ -19,7 +21,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Provider store={store}>
       <Context>
-        <App />
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
       </Context>
     </Provider>
   </BrowserRouter>
