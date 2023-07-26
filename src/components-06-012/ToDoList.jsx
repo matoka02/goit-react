@@ -51,21 +51,21 @@ const ToDoList = () => {
       );
   }, [filterText, searchParams, todoList]);
 
-  const handleCheckCompleted = id => {
+  // const handleCheckCompleted = id => {
     // setTodoList(prevTodoList => {
     //   return prevTodoList.map(todo =>
     //     todo.id === id ? { ...todo, completed: !todo.completed } : todo
     //   );
     // });
-  };
+  // };
 
-  const handleDelete = id => {
+  // const handleDelete = id => {
     // setTodoList(prevTodoList => {
     //   return prevTodoList.filter(todo => todo.id !== id);
     // });
 
-    toast.error('Delete successfully');
-  };
+    // toast.error('Delete successfully');
+  // };
 
   const addToDo = value => {
     // setTodoList(prevTodoList => {
@@ -95,8 +95,8 @@ const ToDoList = () => {
             <ToDo
               key={todo.id}
               todo={todo}
-              handleCheckCompleted={handleCheckCompleted}
-              handleDelete={handleDelete}
+              // handleCheckCompleted={handleCheckCompleted}
+              // handleDelete={handleDelete}
             />
           ))}
         </ul>
