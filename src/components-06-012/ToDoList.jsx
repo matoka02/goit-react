@@ -4,16 +4,21 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { useSearchParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 // import todo from 'assets/data-03-005.json';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 
 import ToDo from './ToDo';
 import FormToDo from './FormToDo';
 import FormFilterToDo from './FormFilterTodo';
+import { createTodo } from './store/todo/action';
 
 const ToDoList = () => {
-  const [todoList, setTodoList] = useState('');
+  // const [todoList, setTodoList] = useState('');
+  const { todo: todoList } = useSelector(state => state.todo);
+  const dispatch = useDispatch();
+
   const [filterTodoList, setFilterTodoList] = useState(todoList);
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -25,17 +30,17 @@ const ToDoList = () => {
   // добавление '', чтобы при незаполненном поле фильтра был рендер всех элементов списка
   const filterText = searchParams.get('filter') ?? '';
 
-  useEffect(() => {
-    const localTodo = localStorage.getItem('todo');
-    if (localTodo) {
-      setTodoList(JSON.parse(localTodo));
-    }
-  }, []);
 
-  useEffect(() => {
-    // прописано условие, чтобы не грузилось сразу при первом рендере
-    todoList && localStorage.setItem('todo', JSON.stringify(todoList));
-  }, [todoList]);
+  // useEffect(() => {
+  //   const localTodo = localStorage.getItem('todo');
+  //   if (localTodo) {
+  //     setTodoList(JSON.parse(localTodo));
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   todoList && localStorage.setItem('todo', JSON.stringify(todoList));
+  // }, [todoList]);
 
   useEffect(() => {
     todoList &&
@@ -47,28 +52,31 @@ const ToDoList = () => {
   }, [filterText, searchParams, todoList]);
 
   const handleCheckCompleted = id => {
-    setTodoList(prevTodoList => {
-      return prevTodoList.map(todo =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      );
-    });
+    // setTodoList(prevTodoList => {
+    //   return prevTodoList.map(todo =>
+    //     todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    //   );
+    // });
   };
 
   const handleDelete = id => {
-    setTodoList(prevTodoList => {
-      return prevTodoList.filter(todo => todo.id !== id);
-    });
+    // setTodoList(prevTodoList => {
+    //   return prevTodoList.filter(todo => todo.id !== id);
+    // });
 
     toast.error('Delete successfully');
   };
 
   const addToDo = value => {
-    setTodoList(prevTodoList => {
-      return [
-        ...prevTodoList,
-        { id: nanoid(), title: value, completed: false },
-      ];
-    });
+    // setTodoList(prevTodoList => {
+    //   return [
+    //     ...prevTodoList,
+    //     { id: nanoid(), title: value, completed: false },
+    //   ];
+    // });
+
+    dispatch(createTodo(value));
+    // createTodo(value);
 
     toast.success('Create successfully');
   };

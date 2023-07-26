@@ -1,26 +1,10 @@
 import React from 'react';
-import { PureComponent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { decrement, increment } from './store/counter/action';
 
-class Button extends PureComponent {
-  render() {
-    // console.log('render Btn :>> ');
-    return (
-      <button
-        className="btn btn-outline-success me-5"
-        onClick={this.props.handleClickPlus}
-      >
-        <i className="bi bi-plus-circle fs-1"></i>
-      </button>
-    );
-  }
-}
-
 const Counter = () => {
-  const { total } = useSelector(state => state.counter);
-  const { step } = useSelector(state => state.counter);
+  const { total, step } = useSelector(state => state.counter);
   console.log(step);
   const dispatch = useDispatch();
 
@@ -36,7 +20,12 @@ const Counter = () => {
             {total}
           </p>
           <div className="d-flex justify-content-center px-5">
-            <Button handleClickPlus={handleClickPlus} />
+            <button
+              className="btn  btn-outline-success me-5"
+              onClick={handleClickPlus}
+            >
+              <i className="bi bi-plus-circle fs-1"></i>
+            </button>
             <button
               className="btn  btn-outline-danger ms-5"
               onClick={handleClickMinus}
