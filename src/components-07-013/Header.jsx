@@ -42,7 +42,8 @@ const Header = ({ ShowModal }) => {
         <button
           className="btn btn-outline-success"
           onClick={() => {
-            dispatch({ type: 'thunk', payload: 100 });
+            // dispatch({ type: 'thunk', payload: 100 });
+            dispatch(()=>({ type: 'thunk', payload: 100 }));
           }}
         >
           thunk
