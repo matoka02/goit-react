@@ -20,7 +20,9 @@ const customMiddle = (state) => {
         // console.log(state.getState);
 
         // return next(action());
-        return next(action(store.dispatch))
+        // return next(action(state.dispatch));
+        action(state.dispatch);
+        return
       }
       return next(action);
     };

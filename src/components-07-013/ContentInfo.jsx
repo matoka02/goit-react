@@ -1,5 +1,5 @@
 // import { Component } from 'react';
-import getNews from 'servises/getNews';
+import { getNews } from 'servises/getNewsRedux';
 import ErrorCard from './ErrorCard';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -13,13 +13,13 @@ const STATUS = {
 };
 
 const ContentInfo = ({ searchText }) => {
-  const { news, setNews } = useCustomContext()
+  const { news, setNews } = useCustomContext();
   // const [news, setNews] = useState(null);
   const [error, setError] = useState('');
   const [status, setStatus] = useState(STATUS.IDLE);
 
-  useEffect(()=>{
-    news&&setStatus(STATUS.RESOLVED)
+  useEffect(() => {
+    news && setStatus(STATUS.RESOLVED);
   }, [news]);
 
   useEffect(() => {

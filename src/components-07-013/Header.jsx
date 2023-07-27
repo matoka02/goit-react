@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 
+import { getNewsThunk } from './store/news/newsReducer';
+
 const Header = ({ ShowModal }) => {
   const navigate = useNavigate();
 
@@ -43,7 +45,8 @@ const Header = ({ ShowModal }) => {
           className="btn btn-outline-success"
           onClick={() => {
             // dispatch({ type: 'thunk', payload: 100 });
-            dispatch(()=>({ type: 'thunk', payload: 100 }));
+            // dispatch(()=>({ type: 'thunk', payload: 100 }));
+            dispatch(getNewsThunk());
           }}
         >
           thunk
