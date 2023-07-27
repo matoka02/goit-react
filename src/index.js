@@ -32,9 +32,10 @@ import './index.css';
 
 // 06. Redux Fundamentals. Redux Toolkit
 // import './test/goit-test-r-06-011';
-import './test/goit-test-r-06-012';
+// import './test/goit-test-r-06-012';
 
 // 07. Async Redux. Selector optimization
+import './test/goit-test-r-07-013';
 
 // 08. Users
 
