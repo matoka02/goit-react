@@ -1,5 +1,5 @@
-// 06. Redux Fundamentals. Redux Toolkit
-// Part 02
+// 07. Async Redux. Selector optimization
+// Part 01
 
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
