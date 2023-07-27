@@ -89,6 +89,12 @@ import initialState from './initialState';
 //   },
 // });
 
+const defaultStatus = {
+	pending: 'pending',
+	fulfilled: 'fulfilled',
+	rejected: 'rejected',
+};
+
 const customArr = [getNewsThunk, getNewsSearchThunk];
 
 const fn = (status) => customArr.map((el) => el[status]);
@@ -140,9 +146,14 @@ const newsSlice = createSlice({
       // .addMatcher(isAnyOf([getNewsThunk.rejected, getNewsSearchThunk.rejected]), handleRejected)
 
       // // рефакторинг, статус вынесен в fn
-			.addMatcher(isAnyOf(...fn('pending')), handlePending)
-			.addMatcher(isAnyOf(...fn('fulfilled')), handleFulfilled)
-			.addMatcher(isAnyOf(...fn('rejected')), handleRejected)
+			// .addMatcher(isAnyOf(...fn('pending')), handlePending)
+			// .addMatcher(isAnyOf(...fn('fulfilled')), handleFulfilled)
+			// .addMatcher(isAnyOf(...fn('rejected')), handleRejected)
+
+      // // рефакторинг, вынесены неизменные переменные
+			.addMatcher(isAnyOf(...fn(defaultStatus.pending)), handlePending)
+			.addMatcher(isAnyOf(...fn(defaultStatus.fulfilled)), handleFulfilled)
+			.addMatcher(isAnyOf(...fn(defaultStatus.rejected)), handleRejected)
   },
 });
 

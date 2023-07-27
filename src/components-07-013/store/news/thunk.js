@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getNews, getTopNews } from "servises/getNewsRedux";
 
-export const getNewsThunk = createAsyncThunk('news/geTopNews', async () => {
+export const getNewsThunk = createAsyncThunk('news/getTopNews', async () => {
   return await getTopNews();
 });
 
