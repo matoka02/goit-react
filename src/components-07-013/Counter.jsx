@@ -6,7 +6,7 @@ import { decrement, increment } from './store/counter/counterSlice';
 
 const Counter = () => {
   const { total, step } = useSelector(state => state.counter);
-  console.log(step);
+  // console.log(step);
   const dispatch = useDispatch();
 
   // const handleClickPlus = () => dispatch(increment(step));     // изменение импорта
