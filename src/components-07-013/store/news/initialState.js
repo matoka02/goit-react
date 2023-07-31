@@ -1,8 +1,14 @@
-const initialState = {
-  news: [],
-  // isLoading: false,
-  status: 'idle',
-  error: '',
-};
+// const initialState = {
+//   news: [],
+//   // isLoading: false,
+//   status: 'idle',
+//   error: '',
+// };
 
-export default initialState;
+// export default initialState;
+
+export const initialState = {
+	news: [],
+	status: 'idle',
+	error: '',
+}
