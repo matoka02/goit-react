@@ -1,5 +1,5 @@
-import Counter from "components-06-012/Counter";
-import Step from "components-06-012/Step";
+import Counter from "components-07-013/Counter";
+import Step from "components-07-013/Step";
 
 
 const HomePage = () => {
