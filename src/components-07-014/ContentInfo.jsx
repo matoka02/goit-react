@@ -6,7 +6,7 @@ import { getNewsSearchThunk, getNewsThunk } from './store/news/thunk';
 
 const STATUS = {
   IDLE: 'idle',
-  RESOLVED: 'resolved',
+  // RESOLVED: 'resolved',
   REJECTED: 'rejected',
   PENDING: 'pending',
   FULFILLED: 'fulfilled',
@@ -38,8 +38,9 @@ const ContentInfo = ({ searchText }) => {
         {news.map(el => {
           return <li key={el.url}>{el.title}</li>;
         })}
+        {/* <button>Load more...</button> */}
       </ul>
-      // сюда можно добавить кнопку load more
+
     );
   } else if (status === STATUS.REJECTED) {
     return <ErrorCard>{error}</ErrorCard>;

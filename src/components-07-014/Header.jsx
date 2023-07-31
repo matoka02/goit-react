@@ -34,6 +34,9 @@ const Header = ({ ShowModal }) => {
             <NavLink className="nav-link text-white" to="/todo">
               Todo
             </NavLink>
+            <NavLink className='nav-link text-white' to='/products'>
+							Products
+						</NavLink>
           </div>
         </div>
         <button className="btn btn-outline-success" onClick={ShowModal}>
