@@ -1,6 +1,6 @@
 // import { createAsyncThunk } from '@reduxjs/toolkit';
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getTopNews, getNews } from 'servises/getNewsRedux';
+// import { getTopNews, getNews } from 'servises/getNewsRedux';
 
 import { getNewsSearchThunk, getNewsThunk } from './thunk';
 import initialState from './initialState';
