@@ -1,5 +1,5 @@
 // 07. Async Redux. Selector optimization
-// Part 01
+// Part 02
 
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
