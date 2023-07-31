@@ -26,7 +26,7 @@ const ContentInfo = ({ searchText }) => {
 
 	const dispatch = useDispatch();
 	const { news, status, error } = useSelector((state) => state.news);
-  console.log(news);
+  // console.log(news);
 
   // useEffect(() => {
   //   news && setStatus(STATUS.RESOLVED);
