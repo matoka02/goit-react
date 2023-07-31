@@ -100,17 +100,17 @@ const customArr = [getNewsThunk, getNewsSearchThunk];
 const fn = (status) => customArr.map((el) => el[status]);
 
 const handlePending = (state) => {
-	state.status = 'pending'
+	state.status = defaultStatus.pending
 };
 
 const handleFulfilled = (state, { payload }) => {
-	state.status = 'fulfilled';
+	state.status = defaultStatus.fulfilled;
 	state.news = payload.articles;
 	state.error = '';
 };
 
 const handleRejected = (state, { payload }) => {
-	state.status = 'rejected';
+	state.status = defaultStatus.rejected;
 	state.error = payload;
 };
 
