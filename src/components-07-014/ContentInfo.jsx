@@ -1,13 +1,8 @@
-// import { Component } from 'react';
 import { useEffect } from 'react';
-// import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-// import { getNews } from 'servises/getNewsRedux';
 import ErrorCard from './ErrorCard';
 import { getNewsSearchThunk, getNewsThunk } from './store/news/thunk';
-// import { useCustomContext } from './Context';
-
 
 const STATUS = {
   IDLE: 'idle',
@@ -19,40 +14,8 @@ const STATUS = {
 
 const ContentInfo = ({ searchText }) => {
 
-  // const { news, setNews } = useCustomContext();
-  // // const [news, setNews] = useState(null);
-  // const [error, setError] = useState('');
-  // const [status, setStatus] = useState(STATUS.IDLE);
-
 	const dispatch = useDispatch();
 	const { news, status, error } = useSelector((state) => state.news);
-  // console.log(news);
-
-  // useEffect(() => {
-  //   news && setStatus(STATUS.RESOLVED);
-  // }, [news]);
-
-  // useEffect(() => {
-  //   if (!searchText) {
-  //     return;
-  //   }
-  //   setStatus(STATUS.PENDING);
-  //   getNews(searchText)
-  //     .then(resp => resp.json()) // любой ответ от этого сервиса приходит в формате json
-  //     .then(data => {
-  //       console.log(data);
-  //       if (data.status === 'ok') {
-  //         setNews(data.articles);
-  //         setStatus(STATUS.RESOLVED);
-  //       } else return Promise.reject(data.message);
-  //     })
-  //     .catch(error => {
-  //       // console.error(error);
-  //       setError(error);
-  //       setStatus(STATUS.REJECTED);
-  //     });
-  // }, [searchText, setNews]);
-
   
 	useEffect(() => {
 		dispatch(getNewsThunk())
