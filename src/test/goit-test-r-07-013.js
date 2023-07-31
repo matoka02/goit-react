@@ -9,7 +9,7 @@ import 'index.css';
 import App from '../components-07-013/App-07-013';
 import Context from 'components-07-013/Context';
 // import store from '../components-06-012/store/store';
-import { persistor, store } from '../components-06-012/store/store';
+import { persistor, store } from '../components-07-013/store/store';
 
 // Лекция 20.04.2023  (Алиев-Ломач)
 
