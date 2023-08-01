@@ -1,5 +1,5 @@
-// 07. Async Redux. Selector optimization
-// Part 02
+// 08. Users
+// Part 01
 
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
