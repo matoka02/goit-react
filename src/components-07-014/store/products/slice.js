@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit'
-import { initialState } from './initial'
+import { initialState } from './initialState'
 import {
 	createProductsThunk,
 	deleteProductsThunk,
