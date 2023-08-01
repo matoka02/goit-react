@@ -5,8 +5,8 @@ import {
 	useDeleteProductsMutation,
 	useGetProductsQuery,
 } from '../store/products/productsAPI';
-import { getProductsThunk } from 'components-07-014/store/products/thunk';
-import { productsSelector } from 'components-07-014/store/products/selectors';
+// import { getProductsThunk } from 'components-07-014/store/products/thunk';
+// import { productsSelector } from 'components-07-014/store/products/selectors';
 
 // // выносится в selectors.js
 // const productSelector = (state) => {
@@ -34,14 +34,15 @@ const ProductsPage = () => {
 	// const data = useGetProductsQuery();
 	// console.log(data);
 	const {isLoading, data: products, isError} = useGetProductsQuery();
-	console.log();
+	const [deleteProduct, delInfo] = useDeleteProductsMutation();
+
 	
 	// return (<></>)
 
 	return (
 		<>
 			{/* <button onClick={()=>setVal((perv)=>perv+1)}>{val}</button> */}
-			{/* {delInfo.isLoading && <h1>Deleting...</h1>} */}
+			{delInfo.isLoading && <h1>Deleting...</h1>}
 
 			{isLoading && (
 				<div className='spinner-border' role='status'>
@@ -81,6 +82,9 @@ const ProductsPage = () => {
 												// onClick={() =>
 												// 	deleteProduct(id)
 												// }
+												onClick={() =>
+													deleteProduct(id)
+												}												
 											>
 												Delete
 											</button>
