@@ -1,52 +1,50 @@
-import React, { useEffect, useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import {
-// 	deleteProductsThunk,
-// 	getProductsThunk,
-// } from '../store/products/thunk';
-// import { productsSelector } from '../store/products/thunk';
+import React from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
 	useDeleteProductsMutation,
 	useGetProductsQuery,
 } from '../store/products/productsAPI';
+import { getProductsThunk } from 'components-07-014/store/products/thunk';
+import { productsSelector } from 'components-07-014/store/products/selectors';
 
-// const STATUS = {
-// 	IDLE: 'idle',
-// 	PENDING: 'pending',
-// 	REJECTED: 'rejected',
-// 	FULFILLED: 'fulfilled',
-// }
+// // выносится в selectors.js
+// const productSelector = (state) => {
+// 	console.log('object');
+// 	return state.products
+// };
 
 const ProductsPage = () => {
-	const { isLoading, data: products, isError } = useGetProductsQuery()
-	const [deleteProduct, delInfo] = useDeleteProductsMutation()
-	// const products = useSelector(productsSelector)
-	// const { products, error, isLoading } = useSelector(
-	// 	(state) => state.products
-	// )
+	// const { products, error, isLoading } = useSelector(productsSelector);
+	const products = useSelector(productsSelector);
+	const { error, isLoading } = useSelector(state=>state.products);
 
-	// const [val, setVal] = useState(0)
+	const [val, setVal] = useState(0);
 
-	// const dispatch = useDispatch()
+	const dispatch = useDispatch();
 
-	// // const sortedProducts =
-	// // 	products && [...products].sort((a, b) => a.price - b.price)
+	// const sortedProducts = products && [...products].sort((a, b) => a.price - b.price);
 
-	// useEffect(() => {
-	// 	dispatch(getProductsThunk())
-	// }, [dispatch])
+	useEffect(() => {
+		dispatch(getProductsThunk())
+	}, [dispatch]);
 
 	return (
 		<>
-			{delInfo.isLoading && <h1>Deleting...</h1>}
+			<button onClick={()=>setVal((perv)=>perv+1)}>{val}</button>
+			{/* {delInfo.isLoading && <h1>Deleting...</h1>} */}
+
 			{isLoading && (
 				<div className='spinner-border' role='status'>
 					<span className='visually-hidden'>Loading...</span>
 				</div>
 			)}
+
+			{/* {sortedProducts && ( */}
 			{products && (
 				<div className='container text-center'>
 					<div className='row'>
+						{/* {sortedProducts.map(						 */}
 						{products.map(
 							({ id, title, description, images, price }) => (
 								<div className='col' key={id}>
@@ -71,9 +69,9 @@ const ProductsPage = () => {
 											</p>
 											<button
 												className='btn btn-danger'
-												onClick={() =>
-													deleteProduct(id)
-												}
+												// onClick={() =>
+												// 	deleteProduct(id)
+												// }
 											>
 												Delete
 											</button>
@@ -86,12 +84,23 @@ const ProductsPage = () => {
 				</div>
 			)}
 
-			{isError && <h2>error</h2>}
+			{/* {isError && <h2>error</h2>} */}
 		</>
 	)
 }
 
-export default ProductsPage
+export default ProductsPage;
+
+
+
+// // вариант на state-machins
+
+// const STATUS = {
+// 	IDLE: 'idle',
+// 	PENDING: 'pending',
+// 	REJECTED: 'rejected',
+// 	FULFILLED: 'fulfilled',
+// };
 
 // const ProductsPage = () => {
 // 	const { products, error, status } = useSelector((state) => state.products)
@@ -151,4 +160,4 @@ export default ProductsPage
 // 	else if (status === STATUS.REJECTED) return <h2>{error}</h2>
 // }
 
-// export default ProductsPage
+// export default ProductsPage;
