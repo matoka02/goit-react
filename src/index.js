@@ -36,7 +36,9 @@ import './index.css';
 
 // 07. Async Redux. Selector optimization
 // import './test/goit-test-r-07-013';
-import './test/goit-test-r-07-014';
+// import './test/goit-test-r-07-014';
 
 // 08. Users
+import './test/goit-test-r-08-015';
+import './test/goit-test-r-08-016';
 
