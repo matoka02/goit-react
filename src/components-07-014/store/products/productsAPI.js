@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const productsApi = createApi({
 	reducerPath: 'products',
@@ -14,6 +14,7 @@ export const productsApi = createApi({
 			invalidatesTags: ['Products'],
 		}),
 	}),
-})
+});
 
+// создание и экспорт собственных хуков
 export const { useGetProductsQuery, useDeleteProductsMutation } = productsApi;

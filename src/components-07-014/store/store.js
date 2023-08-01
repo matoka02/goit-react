@@ -5,8 +5,6 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 import { FLUSH, REHYDRATE,	PAUSE,	PERSIST,	PURGE,	REGISTER } from 'redux-persist';
 import { reducer } from './reducer';
 import { productsApi } from './products/productsAPI';
-import { getDefaultNormalizer } from '@testing-library/react';
-
 
 const persistConfig = {
   key: 'todoS',

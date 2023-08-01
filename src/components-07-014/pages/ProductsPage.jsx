@@ -1,6 +1,6 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useEffect, useState } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
 import {
 	useDeleteProductsMutation,
 	useGetProductsQuery,
@@ -15,23 +15,32 @@ import { productsSelector } from 'components-07-014/store/products/selectors';
 // };
 
 const ProductsPage = () => {
-	// const { products, error, isLoading } = useSelector(productsSelector);
-	const products = useSelector(productsSelector);
-	const { error, isLoading } = useSelector(state=>state.products);
+	// // const { products, error, isLoading } = useSelector(productsSelector);
+	// const products = useSelector(productsSelector);
+	// const { error, isLoading } = useSelector(state=>state.products);
 
-	const [val, setVal] = useState(0);
+	// const [val, setVal] = useState(0);
 
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 
-	// const sortedProducts = products && [...products].sort((a, b) => a.price - b.price);
+	// // const sortedProducts = products && [...products].sort((a, b) => a.price - b.price);
 
-	useEffect(() => {
-		dispatch(getProductsThunk())
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	dispatch(getProductsThunk())
+	// }, [dispatch]);
+
+
+	// рефакторинг на RTK
+	// const data = useGetProductsQuery();
+	// console.log(data);
+	const {isLoading, data: products, isError} = useGetProductsQuery();
+	console.log();
+	
+	// return (<></>)
 
 	return (
 		<>
-			<button onClick={()=>setVal((perv)=>perv+1)}>{val}</button>
+			{/* <button onClick={()=>setVal((perv)=>perv+1)}>{val}</button> */}
 			{/* {delInfo.isLoading && <h1>Deleting...</h1>} */}
 
 			{isLoading && (
@@ -84,7 +93,7 @@ const ProductsPage = () => {
 				</div>
 			)}
 
-			{/* {isError && <h2>error</h2>} */}
+			{isError && <h2>error</h2>}
 		</>
 	)
 }
