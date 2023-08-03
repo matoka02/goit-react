@@ -1,10 +1,20 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 // import { login } from 'servises/auth-service';
 import { loginThunk } from 'components-08-015/store/auth/thunk';
 
 const LoginPage = () => {
+  const isAuth = useSelector(state=> state.auth.access_token);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+
+  useEffect(()=>{
+    isAuth && navigate('/')
+  }, [isAuth, navigate]);
+
   const handleSubmit = evt => {
     evt.preventDefault();
     // // рефакторинг с переносом в thunk
