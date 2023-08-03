@@ -39,6 +39,6 @@ import './index.css';
 // import './test/goit-test-r-07-014';
 
 // 08. Users
-import './test/goit-test-r-08-015';
-// import './test/goit-test-r-08-016';
+// import './test/goit-test-r-08-015';
+import './test/goit-test-r-08-016';
 

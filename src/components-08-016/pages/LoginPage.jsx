@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 // import { login } from 'servises/auth-service';
-import { loginThunk } from 'components-08-015/store/auth/thunk';
+import { loginThunk } from 'components-08-016/store/auth/thunk';
 
 const LoginPage = () => {
   const isAuth = useSelector(state=> state.auth.access_token);
