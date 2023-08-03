@@ -6,10 +6,10 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import 'index.css';
 
-import App from '../components-07-014/App-07-014';
-import Context from 'components-07-014/Context';
-// import store from '../components-06-012/store/store';
-import { persistor, store } from '../components-07-014/store/store';
+import App from '../components-08-016/App-08-016';
+import Context from 'components-08-016/Context';
+// import store from '../components-08-016/store/store';
+import { persistor, store } from '../components-08-016/store/store';
 
 // Лекция xxxxxxxxxxxxx  (Алиев-Ломач)
 
