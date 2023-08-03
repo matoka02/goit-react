@@ -6,6 +6,7 @@ import { Suspense, lazy } from 'react';
 
 import Layout from './Layout';
 import HomePage from './pages/HomePage';
+import RegistrationPage from './pages/RegistrationPage';
 
 const ToDoDetails = lazy(() => import('./ToDoDetails'));
 const NewsPage = lazy(() => import('./pages/NewsPage'));
@@ -28,6 +29,11 @@ const App = () => {
           <LoginPage />
         </Suspense>
       } />
+      <Route path='/signUp' element={
+        <Suspense>
+          <RegistrationPage />
+        </Suspense>
+      } />      
     </Routes>
   );
 };

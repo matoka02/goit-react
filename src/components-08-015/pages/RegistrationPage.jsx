@@ -1,23 +1,28 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-// import { login } from 'servises/auth-service';
-import { loginThunk } from 'components-08-015/store/auth/thunk';
+// import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { signUp } from 'servises/auth-service';
 
-const LoginPage = () => {
-  const dispatch = useDispatch();
+const RegistrationPage = () => {
+  const navigate = useNavigate();
+  
   const handleSubmit = evt => {
     evt.preventDefault();
-    // // рефакторинг с переносом в thunk
-    // login({
-    //   email: evt.target.elements.email.value,
-    //   password: evt.target.elements.password.value,
-    // }).then(() => {
-    //   console.log(login);
-    // });
-    dispatch(loginThunk({
+    const newUser = {
+      name: evt.target.elements.name.value,
       email: evt.target.elements.email.value,
-      password: evt.target.elements.password.value,      
-    }))
+      password: evt.target.elements.password.value,
+      avatar: 'https://api.lorem.space/image/face?w=640&h=480&r=867',
+    };
+    console.log(newUser);
+    const data = signUp(newUser)
+      // .then(resp => toast.success('Created'))
+      // .catch(error => toast.error(error.responce.data.message));
+      .then(() => {
+        console.log('Created');
+        navigate('/login');
+      })
+      .catch((error)=>console.error(error));
+    console.log(data);
   };
 
   return (
@@ -25,9 +30,20 @@ const LoginPage = () => {
       className="card position-absolute top-50 start-50 translate-middle p-2"
       style={{ minWidth: '350px' }}
     >
-      <h1 className="text-center">Login</h1>
+      <h1 className="text-center">SignUp</h1>
 
       <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="exampleInputName1" className="form-label">
+            Name
+          </label>
+          <input
+            name="name"
+            type="text"
+            className="form-control"
+            id="exampleInputName1"
+          />
+        </div>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Email address
@@ -62,4 +78,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegistrationPage;
