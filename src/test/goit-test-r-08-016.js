@@ -11,7 +11,7 @@ import Context from 'components-07-014/Context';
 // import store from '../components-06-012/store/store';
 import { persistor, store } from '../components-07-014/store/store';
 
-// Лекция 21.04.2023  (Алиев-Ломач)
+// Лекция xxxxxxxxxxxxx  (Алиев-Ломач)
 
 // // Подключение Bootstrap в html
 // <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></link>
