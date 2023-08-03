@@ -6,7 +6,6 @@ import { getNewsSearchThunk, getNewsThunk } from './store/news/thunk';
 
 const STATUS = {
   IDLE: 'idle',
-  // RESOLVED: 'resolved',
   REJECTED: 'rejected',
   PENDING: 'pending',
   FULFILLED: 'fulfilled',

@@ -1,16 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-// import { decrement, increment } from './store/counter/action';     // изменение импорта
 import { decrement, increment } from './store/counter/counterSlice';
 
 const Counter = () => {
   const { total, step } = useSelector(state => state.counter);
   // console.log(step);
   const dispatch = useDispatch();
-
-  // const handleClickPlus = () => dispatch(increment(step));     // изменение импорта
-  // const handleClickMinus = () => dispatch(decrement(step));     // изменение импорта
 
   const handleClickPlus = () => dispatch(increment(step));
   const handleClickMinus = () => dispatch(decrement(step)); 
