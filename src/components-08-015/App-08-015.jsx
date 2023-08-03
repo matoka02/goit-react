@@ -16,7 +16,7 @@ const LoginPage = lazy(() => import('./pages/LoginPage'));
 const ProductsPage = lazy(() => import('./pages/ProductsPage'));
 
 const App = () => {
-  const isAuth = useSelector(state => state.auth.accees_token);
+  const isAuth = useSelector(state => state.auth.access_token);
   console.log(isAuth);
   return (
     <Routes>
