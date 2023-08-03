@@ -32,18 +32,23 @@ const handleRejected = (state, { payload }) => {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    logOut(state){
+      state.profile = null;
+      state.access_token = '';
+    }
+  },
   extraReducers: builder => {
     builder
       // .addCase(loginThunk.pending, handlePending)
       // .addCase(loginThunk.fulfilled, handleFulfilled)
       // .addCase(loginThunk.rejected, handleRejected)
-
-      .addMatcher(isAnyOf(loginThunk.pending, getProfileThunk.pending), handlePending)
       .addCase(loginThunk.fulfilled, handleFulfilled)
       .addCase(getProfileThunk.fulfilled, handleFulfilledProfile)
+      .addMatcher(isAnyOf(loginThunk.pending, getProfileThunk.pending), handlePending)
       .addMatcher(isAnyOf(loginThunk.fulfilled, getProfileThunk.rejected), handleRejected);
   },
 });
 
 export const authReducer = authSlice.reducer;
+export const { logOut } = authSlice.actions;
