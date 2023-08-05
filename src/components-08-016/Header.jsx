@@ -43,7 +43,8 @@ const Header = ({ showModal }) => {
               Home
             </NavLink>
             {/* вариант №2 для авторизации */}
-            {access_token && (
+            {/* {access_token && ( */}
+            { (              
               <>
                 <NavLink className="nav-link text-white" to="/news">
                   News
