@@ -3,12 +3,14 @@
 
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
+import { useSelector } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
 
 import Layout from './Layout';
 import HomePage from './pages/HomePage';
 import RegistrationPage from './pages/RegistrationPage';
-import { useSelector } from 'react-redux';
-import { Toaster } from 'react-hot-toast';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 const ToDoDetails = lazy(() => import('./ToDoDetails'));
 const NewsPage = lazy(() => import('./pages/NewsPage'));
@@ -26,23 +28,38 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="news" element={<NewsPage />} />
-          {/* вариант №1 для авторизации */}
-          {/* {isAuth && (
-          <>
-            <Route path="todo" element={<TodoPage />} />
-            <Route path="todo/:id" element={<ToDoDetails />} />
-            <Route path="products" element={<ProductsPage />} />
-          </>
-        )} */}
-          <Route path="todo" element={<TodoPage />} />
-          <Route path="todo/:id" element={<ToDoDetails />} />
-          <Route path="products" element={<ProductsPage />} />
+          <Route
+            path="todo"
+            element={
+              <PrivateRoute>
+                <TodoPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="todo/:id"
+            element={
+              <PrivateRoute>
+                <ToDoDetails />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="products"
+            element={
+              <PrivateRoute>
+                <ProductsPage />
+              </PrivateRoute>
+            }
+          />
         </Route>
         <Route
           path="/login"
           element={
             <Suspense>
-              <LoginPage />
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
             </Suspense>
           }
         />
@@ -50,7 +67,9 @@ const App = () => {
           path="/signUp"
           element={
             <Suspense>
-              <RegistrationPage />
+              <PublicRoute>
+                <RegistrationPage />
+              </PublicRoute>
             </Suspense>
           }
         />

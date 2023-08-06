@@ -12,7 +12,7 @@ import { productsApi } from './products/productsAPI';
 const persistConfig = {
   key: 'todoS',
   storage,
-  whitelist: ['todo']
+  whitelist: ['todo', 'auth']
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);

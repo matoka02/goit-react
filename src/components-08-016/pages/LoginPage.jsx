@@ -2,7 +2,8 @@ import React from 'react';
 // import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // import { useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 // import { login } from 'servises/auth-service';
 import { getProfileThunk, loginThunk } from 'components-08-016/store/auth/thunk';
@@ -11,7 +12,7 @@ import { toast } from 'react-hot-toast';
 const LoginPage = () => {
   // const isAuth = useSelector(state => state.auth.access_token);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // useEffect(() => {
   //   isAuth && navigate('/');
@@ -25,6 +26,24 @@ const LoginPage = () => {
   //   })).unwrap().then(()=>navigate('/')).catch()
   // };
 
+  // // рефакторинг
+  // const handleSubmit = evt => {
+  //   evt.preventDefault();
+  //   dispatch(
+  //     loginThunk({
+  //       email: evt.target.elements.email.value,
+  //       password: evt.target.elements.password.value,
+  //     })
+  //   )
+  //     .unwrap()
+  //     // .then(() => navigate('/'))
+  //     .then(() => {
+  //       dispatch(getProfileThunk());
+  //       navigate('/')      
+  //     } )
+  //     .catch(()=>toast.error('Some error...'));
+  // };
+
   // рефакторинг
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -36,12 +55,13 @@ const LoginPage = () => {
     )
       .unwrap()
       // .then(() => navigate('/'))
-      .then(() => {
-        dispatch(getProfileThunk());
-        navigate('/')
-      } )
+      // .then(() => {
+        // dispatch(getProfileThunk());
+        // navigate('/')      // навигация перенесена в PublicRoute
+      // } )
       .catch(()=>toast.error('Some error...'));
   };
+
 
   return (
     <div
