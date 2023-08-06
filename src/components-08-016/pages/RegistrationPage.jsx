@@ -1,10 +1,15 @@
-// import { toast } from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { loginThunk } from 'components-08-016/store/auth/thunk';
+import { toast } from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+
 import { signUp } from 'servises/auth-service';
 
 const RegistrationPage = () => {
-  const navigate = useNavigate();
-  
+  // const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const handleSubmit = evt => {
     evt.preventDefault();
     const newUser = {
@@ -14,15 +19,20 @@ const RegistrationPage = () => {
       avatar: 'https://api.lorem.space/image/face?w=640&h=480&r=867',
     };
     console.log(newUser);
-    const data = signUp(newUser)
-      // .then(resp => toast.success('Created'))
-      // .catch(error => toast.error(error.responce.data.message));
+    signUp(newUser)
       .then(() => {
-        console.log('Created');
-        navigate('/login');
+        // console.log('Created');
+        // navigate('/login');
+        toast.success('Registration successfully');
+        dispatch(
+          loginThunk({
+            email: evt.target.elements.email.value,
+            password: evt.target.elements.password.value,
+          })
+        );
       })
-      .catch((error)=>console.error(error));
-    console.log(data);
+      .catch(error => console.error(error));
+    // console.log(data);
   };
 
   return (
@@ -72,8 +82,8 @@ const RegistrationPage = () => {
         </div>
 
         <div>
-          <Link to='/login'>Login</Link>
-        </div>        
+          <Link to="/login">Login</Link>
+        </div>
 
         <button type="submit" className="btn btn-primary">
           Submit

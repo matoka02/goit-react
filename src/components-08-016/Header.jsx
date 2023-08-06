@@ -9,6 +9,8 @@ import { logOut } from './store/auth/authSlice';
 
 const Header = ({ showModal }) => {
   const { profile, access_token } = useSelector(state => state.auth);
+  console.log(access_token);
+  console.log(profile);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();

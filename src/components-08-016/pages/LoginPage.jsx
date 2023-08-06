@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 
 // import { login } from 'servises/auth-service';
-import { getProfileThunk, loginThunk } from 'components-08-016/store/auth/thunk';
+// import { getProfileThunk } from 'components-08-016/store/auth/thunk';
+import { loginThunk } from 'components-08-016/store/auth/thunk';
 import { toast } from 'react-hot-toast';
 
 const LoginPage = () => {
