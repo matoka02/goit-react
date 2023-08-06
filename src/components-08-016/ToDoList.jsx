@@ -20,6 +20,7 @@ const ToDoList = () => {
   const dispatch = useDispatch();
 
   const [filterTodoList, setFilterTodoList] = useState(todoList);
+  console.log(setFilterTodoList);
 
   const [searchParams, setSearchParams] = useSearchParams();
   // console.log(searchParams.get('filter'));

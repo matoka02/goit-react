@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useNavigate } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import { useEffect } from 'react';
 
 import {
@@ -17,7 +18,7 @@ import {
 import AdbIcon from '@mui/icons-material/Adb';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import { getNewsThunk } from './store/news/thunk';
+// import { getNewsThunk } from './store/news/thunk';
 import { dellToken } from 'servises/auth-service';
 import { logOut } from './store/auth/authSlice';
 // import { getProfileThunk } from './store/auth/thunk';
