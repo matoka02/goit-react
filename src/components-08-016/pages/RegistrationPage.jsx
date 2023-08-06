@@ -1,5 +1,5 @@
 // import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signUp } from 'servises/auth-service';
 
 const RegistrationPage = () => {
@@ -70,6 +70,11 @@ const RegistrationPage = () => {
             id="exampleInputPassword1"
           />
         </div>
+
+        <div>
+          <Link to='/login'>Login</Link>
+        </div>        
+
         <button type="submit" className="btn btn-primary">
           Submit
         </button>

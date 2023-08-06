@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 
 import { Outlet } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
+// import { Toaster } from 'react-hot-toast';
 import { Suspense, useState } from 'react';
 
 import Header from './Header';
@@ -28,7 +28,7 @@ const Layout = () => {
 
   return (
     <div className="container">
-      <Toaster position="top-right" toastOptions={{ duration: 1500 }}></Toaster>
+      {/* <Toaster position="top-right" toastOptions={{ duration: 1500 }}></Toaster> */}
       <Header ShowModal={ShowModal} />
 
       <Suspense fallback={<h1>Loading...</h1>}>

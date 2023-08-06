@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 import { getNewsThunk } from './store/news/thunk';
 import { dellToken } from 'servises/auth-service';
-import { logOut } from './store/auth/slice';
-import { getProfileThunk } from './store/auth/thunk';
+import { logOut } from './store/auth/authSlice';
+// import { getProfileThunk } from './store/auth/thunk';
 
 const Header = ({ showModal }) => {
   const { profile, access_token } = useSelector(state => state.auth);
@@ -23,11 +23,11 @@ const Header = ({ showModal }) => {
     dellToken();
   };
 
-  useEffect(() => {
-    console.log('object');
-    // console.log(profile.name);
-    access_token && dispatch(getProfileThunk());
-  }, [access_token, dispatch]);
+  // useEffect(() => {
+  //   console.log('object');
+  //   // console.log(profile.name);
+  //   access_token && dispatch(getProfileThunk());
+  // }, [access_token, dispatch]);
 
   return (
     <nav className="navbar bg-dark mb-3 navbar-expand-lg">

@@ -1,33 +1,46 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+// import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+// import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 
 // import { login } from 'servises/auth-service';
-import { loginThunk } from 'components-08-016/store/auth/thunk';
+import { getProfileThunk, loginThunk } from 'components-08-016/store/auth/thunk';
+import { toast } from 'react-hot-toast';
 
 const LoginPage = () => {
-  const isAuth = useSelector(state=> state.auth.access_token);
+  // const isAuth = useSelector(state => state.auth.access_token);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   isAuth && navigate('/');
+  // }, [isAuth, navigate]);
 
-  useEffect(()=>{
-    isAuth && navigate('/')
-  }, [isAuth, navigate]);
+  // const handleSubmit = evt => {
+  //   evt.preventDefault();
+  //   dispatch(loginThunk({
+  //     email: evt.target.elements.email.value,
+  //     password: evt.target.elements.password.value,
+  //   })).unwrap().then(()=>navigate('/')).catch()
+  // };
 
+  // рефакторинг
   const handleSubmit = evt => {
     evt.preventDefault();
-    // // рефакторинг с переносом в thunk
-    // login({
-    //   email: evt.target.elements.email.value,
-    //   password: evt.target.elements.password.value,
-    // }).then(() => {
-    //   console.log(login);
-    // });
-    dispatch(loginThunk({
-      email: evt.target.elements.email.value,
-      password: evt.target.elements.password.value,      
-    }))
+    dispatch(
+      loginThunk({
+        email: evt.target.elements.email.value,
+        password: evt.target.elements.password.value,
+      })
+    )
+      .unwrap()
+      // .then(() => navigate('/'))
+      .then(() => {
+        dispatch(getProfileThunk());
+        navigate('/')
+      } )
+      .catch(()=>toast.error('Some error...'));
   };
 
   return (
@@ -64,6 +77,11 @@ const LoginPage = () => {
             id="exampleInputPassword1"
           />
         </div>
+
+        <div>
+          <Link to='/signUp'>Sign Up</Link>
+        </div>
+
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
